@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behind The Code - Futuristic Landing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cyber-bg: #0a061c;
+      --cyber-purple: #c770f0;
+      --cyber-purple-dark: #24184d;
+      --neon-blue: #32eaff;
+      --neon-pink: #ff49ef;
+      --button-bg: linear-gradient(92deg, #442973 10%, #9d5df3 50%, #33296A 100%);
+      --button-bg-hover: linear-gradient(92deg, #5a41a3 10%, #e187fa 70%, #382388 100%);
+      --button-shadow: 0 2px 16px 2px #9d5df0cc, 0 1px 2px #33296A;
+      --button-glow: 0 0 18px 4px #c770f0, 0 0 32px 2px #32eaff44;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Share Tech Mono', 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(circle, #292656 0%, #0a061c 100%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      flex-direction: column;
+      padding: 0;
+      position: relative;
+    }
+    .cyber-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      min-height: 600px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .glow-heading {
+      font-family: 'Orbitron', 'Share Tech Mono', monospace;
+      font-size: clamp(2.1rem, 9vw, 4.3rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cyber-purple);
+      background: linear-gradient(92deg, var(--neon-blue) 40%, var(--cyber-purple) 60%, var(--neon-pink) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: brightness(1.06);
+      text-shadow: 0 0 18px #c770f0, 0 0 42px #32eaff, 0 0 1px #fff;
+      animation: neon-reveal 1.5s cubic-bezier(.7,.3,.2,1.4) forwards;
+      opacity: 0;
+    }
+    @keyframes neon-reveal {
+      0% { opacity: 0; letter-spacing: 0.4em; filter: blur(10px); }
+      50% { opacity: 0.7; filter: blur(3px);}
+      100% { opacity: 1; letter-spacing: 0.08em; filter: blur(0);}
+    }
+    .typewriter-sub {
+      margin-top: 2.5rem;
+      font-size: 1.33rem;
+      background: linear-gradient(90deg, #48d1fb, #c770f0 65%, #ff49ef 99%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 400;
+      text-transform: none;
+      min-height: 38px;
+      letter-spacing: 0.04em;
+      font-family: 'Share Tech Mono', monospace;
+      display: block;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 2.2rem;
+      margin-top: 3.5rem;
+      margin-bottom: 2.7rem;
+    }
+    .cyber-btn {
+      position: relative;
+      min-width: 144px;
+      min-height: 48px;
+      padding: 0 44px;
+      background: var(--button-bg);
+      border: none;
+      outline: none;
+      border-radius: 2.2em 2.6em 2.1em 2.9em / 2.7em 2.1em 2.5em 2.3em;
+      font-size: 1.25rem;
+      font-family: 'Orbitron', 'Share Tech Mono', monospace;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--button-shadow);
+      transition: 
+        background 0.3s cubic-bezier(.6,.5,.3,1), 
+        box-shadow 0.21s cubic-bezier(.48,.13,.33,1.07),
+        filter 0.17s cubic-bezier(.79,.26,.26,1.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.09em;
+      margin: 0 6px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .cyber-btn span {
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      font-size: 1.16em;
+      padding: 0;
+      transition: opacity 0.16s;
+      font-weight: 700;
+    }
+    .cyber-btn:before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 2.2em 2.6em 2.1em 2.9em / 2.7em 2.1em 2.5em 2.3em;
+      background: transparent;
+      box-shadow: 0 0 6px #c770f088, 0 0 28px 2px #9d5df0bb;
+      opacity: 0;
+      transition: opacity 0.23s, box-shadow 0.23s;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(0.5px);
+    }
+    .cyber-btn:hover:before,
+    .cyber-btn:focus:before {
+      opacity: 1;
+      box-shadow: 0 0 12px #c770f0cc, 0 0 38px 8px #9d5df0cc;
+    }
+    .cyber-btn:after {
+      content: attr(data-hover);
+      position: absolute;
+      left: 0; right: 0; top: 0; bottom: 0;
+      display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1.09em;
+      letter-spacing: 0.07em;
+      font-weight: 700;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.18s;
+      z-index: 3;
+      background: none;
+      pointer-events: none;
+      text-shadow: 0 0 6px #ff49efcc, 0 0 14px #c770f0,0 0 2px #32eaff66;
+    }
+    .cyber-btn:hover:after,
+    .cyber-btn:focus:after {
+      opacity: 1;
+    }
+    .cyber-btn:hover span,
+    .cyber-btn:focus span {
+      opacity: 0;
+    }
+    /* Smooth scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 36px;
+      width: 38px;
+      height: 64px;
+      z-index: 3;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+    .scroll-mouse {
+      width: 28px;
+      height: 46px;
+      border: 2.6px solid var(--cyber-purple);
+      border-radius: 17px;
+      position: relative;
+      background: rgba(22,15,55,0.82);
+      box-shadow: 0 0 12px 2px #c770f088, 0 0 2px #fff;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .mouse-dot {
+      width: 6px;
+      height: 12px;
+      border-radius: 3px;
+      background: var(--neon-blue);
+      margin-top: 7px;
+      margin-bottom: 0;
+      opacity: 0.88;
+      animation: scrollDot 1.4s infinite;
+    }
+    @keyframes scrollDot {
+      0% { margin-top: 10px; opacity: 0.9;}
+      70% { margin-top: 28px; opacity: 0.66;}
+      100% { margin-top: 10px; opacity: 0.88;}
+    }
+    /* Responsive Styles */
+    @media (max-width: 700px) {
+      .cyber-hero {
+        min-height: 85vh;
+        height: 88vh;
+        padding-top: 1rem;
+      }
+      .glow-heading {
+        font-size: clamp(1.35rem, 8vw, 2.1rem);
+      }
+      .typewriter-sub {
+        font-size: 1.1rem;
+        min-height: 35px;
+        margin-top: 2rem;
+      }
+      .hero-btns {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2.8rem;
+        margin-bottom: 1.7rem;
+      }
+      .scroll-indicator {
+        bottom: 18px;
+      }
+    }
+    @media (max-width: 440px) {
+      .cyber-hero { min-height: 97vh; padding: 0; }
+      .glow-heading { font-size: 1.03rem; }
+      .typewriter-sub { font-size: .93rem; min-height: 26px; }
+      .hero-btns { gap: .9rem; }
+      .cyber-btn { padding: 0 28px; min-width: 110px; font-size: 0.90rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="cyber-hero">
+    <h1 class="glow-heading" id="mainHeading">Behind The Code</h1>
+    <span class="typewriter-sub" id="subtitle"></span>
+    <div class="hero-btns">
+      <a href="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/f7c72867c7800c5e080345863d55961f/f38f2641-fa7f-4731-9c5d-269f8c3cbed7/canvas-app/index.html" class="cyber-btn" data-hover="About Me">
+        <span>Brijesh</span>
+      </a>
+      <a href="#" class="cyber-btn" data-hover="About Me">
+        <span>Avani</span>
+      </a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="mouse-dot"></div></div>
+    </div>
+  </div>
+  <script>
+    // Neon-glow hero reveal
+    window.onload = function() {
+      document.getElementById('mainHeading').style.opacity = '1';
+      setTimeout(() => {
+        document.getElementById('mainHeading').style.animationPlayState = 'running';
+      }, 160);
+      // Typewriter effect for subtitle
+      const text = "Two minds. One journey. Get to know us.";
+      const el = document.getElementById('subtitle');
+      let n = 0;
+      function typeWriter() {
+        if (n < text.length) {
+          el.textContent += text[n++];
+          setTimeout(typeWriter, 35 + Math.random()*55);
+        }
+      }
+      setTimeout(typeWriter, 1200);
+    };
+  </script>
+</body>
+</html>
