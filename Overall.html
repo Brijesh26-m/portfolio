@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brijesh Maurya Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-purple: #c770f0;
+      --main-dark: #1b1432;
+      --soft-black: #171225;
+      --accent-blue: #32eaff;
+      --accent-pink: #ff49ef;
+      --card-bg: #24184d;
+      --border-glow: #9d5df0cc;
+      --section-pad: 36px;
+      --font-main: 'Share Tech Mono', 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    }
+    html, body { background: radial-gradient(circle, #201943 0%, #0a061c 100%); color: #fff; font-family: var(--font-main); margin:0; padding:0; min-height:100vh; }
+    body { display: flex; flex-direction: column; align-items: center; }
+    .hero-section { width: 100vw; max-width: 680px; text-align: center; margin-top: 54px; margin-bottom: 14px; }
+    .hero-title { font-size: 2.2rem; font-weight: 700; color: var(--main-purple); text-shadow: 0 0 18px var(--main-purple); }
+    .hero-sub { font-size: 1.19rem; margin:8px 0 16px 0; color: #ac8af4; text-shadow: 0 0 7px var(--main-purple); }
+    .profile-img { margin: 0 auto 20px auto; border-radius: 50%; border: 3px solid var(--accent-blue); width: 132px; height: 132px; object-fit: cover; box-shadow: 0 0 22px var(--accent-blue); }
+    .about-section { max-width: 660px; width:97vw; background: var(--card-bg); border-radius: 20px; margin:0 auto 20px auto; padding:var(--section-pad); box-shadow: 0 0 18px var(--border-glow); border: 1.2px solid var(--main-purple); }
+    .section-title { color: var(--main-purple); font-size: 1.32rem; font-weight: 700; margin-bottom: 22px; text-shadow: 0 0 8px var(--main-purple); }
+    .card-list { margin:0; padding:0; display:flex; flex-direction: column; gap:16px; }
+    .data-card { background: var(--main-dark); border-radius: 16px; border: 1px solid #c770f033; box-shadow: 0 0 10px var(--main-purple); padding:20px 28px; margin-bottom: 4px; color:#eaeefd;}
+    .data-card-title { font-weight: 700; color: var(--accent-blue); font-size: 1.09rem; margin-bottom:4px; }
+    .skills-section { max-width:660px; padding:var(--section-pad); background: var(--card-bg); border-radius: 18px; margin-bottom:28px; color:#fff; box-shadow:0 0 12px var(--main-purple); border:1px solid #c770f033; }
+    .skills-title { color:var(--main-purple); font-size:1.15rem; font-weight:700; margin-bottom:12px; text-shadow:0 0 7px #ac8af4; }
+    .skills-list { display:flex; flex-wrap: wrap; gap:14px; margin:0; padding:0; }
+    .skill-item { background:#160e2a; padding:8px 20px; border-radius:12px; color: var(--accent-blue); font-size:0.97rem; font-weight:700; border: 1px solid var(--accent-blue); box-shadow: 0 0 6px var(--accent-blue); }
+    .project-section { max-width:660px; background: var(--card-bg); border-radius: 17px; padding:var(--section-pad); margin-bottom:28px; box-shadow:0 0 15px var(--border-glow); border:1.2px solid #c770f033; }
+    .project-title { color:var(--main-purple); font-size: 1.18rem; font-weight: 700; margin-bottom:18px; text-shadow: 0 0 7px #c770f0;}
+    .project-card { background: var(--main-dark); border-radius: 14px; padding:18px 22px; margin-bottom: 18px; box-shadow: 0 0 8px var(--accent-blue); border:1px solid var(--accent-blue); color:#fff; }
+    .project-img { width:100%; border-radius: 11px; object-fit: cover; margin-bottom:8px; border:2px solid var(--main-purple); }
+    .project-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+    .tag { background: var(--main-purple); color: #fff; font-size: 0.92rem; padding: 5px 18px; border-radius: 10px; font-weight:700; }
+    .contact-section { max-width:660px; background: var(--card-bg); border-radius: 13px; margin-bottom:28px; padding:var(--section-pad); box-shadow:0 0 8px #c770f0; border:1.2px solid #c770f033; color:#eaeefd;}
+    .contact-title { font-size:1.12rem; font-weight:700; color:var(--main-purple); margin-bottom:14px;}
+    .contact-list { list-style:none; padding:0; margin:0; }
+    .contact-item { margin-bottom:10px; font-size:1.07rem; color:#fff; display:flex; align-items:center; gap:10px; }
+    .contact-label { color:var(--accent-blue); font-weight:700; margin-right:9px; }
+    @media(max-width:760px) {
+      .hero-section, .about-section, .skills-section, .project-section, .contact-section { max-width:95vw;  padding:20px; }
+    }
+    @media(max-width:480px) {
+      .hero-section { margin-top:23px; }
+      .hero-title { font-size:1.06rem; }
+      .profile-img { width: 96px; height: 96px; }
+      .about-section, .skills-section, .project-section, .contact-section { padding:13px; font-size:0.98rem;}
+      .card-list { gap:7px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-section">
+    <img class="profile-img" src="https://i.postimg.cc/J7GpM6c3/20241225-120122.jpg" alt="Profile Photo">
+    <div class="hero-title">Hi There! 👋 I'm Brijesh Maurya</div>
+    <div class="hero-sub">Aspiring Frontend Developer &amp; UI/UX Designer</div>
+    <div>A motivated Computer Science student passionate about creating beautiful, user-friendly web experiences. I love transforming ideas into engaging digital products with clean code and thoughtful design.</div>
+  </div>
+  <div class="about-section">
+    <div class="section-title">About Me</div>
+    <div>I'm a Computer Science student at Dayananda Sagar Institutions (2023-2026) with a strong passion for web development and UI/UX design. I believe in the power of collaboration and continuous learning to create impactful experiences.</div>
+  </div>
+  <div class="about-section">
+    <div class="section-title">Education</div>
+    <div class="card-list">
+      <div class="data-card">
+        <div class="data-card-title">Diploma in Computer Science</div>
+        Dayananda Sagar Institute <br>
+        <span style="color: var(--accent-blue);">(Ongoing)</span> <br>2023 - 2026
+      </div>
+    </div>
+  </div>
+  <div class="about-section">
+    <div class="section-title">Experience</div>
+    <div class="card-list">
+      <div class="data-card">
+        <div class="data-card-title">Frontend Developer</div>
+        ASTROFHOLIC <br>
+        Contributing to innovative projects and visual design
+      </div>
+    </div>
+  </div>
+  <div class="about-section">
+    <div class="section-title">Certifications &amp; Courses</div>
+    <div class="card-list">
+      <div class="data-card">Web Development - Internshala</div>
+      <div class="data-card">UI/UX Design Fundamentals</div>
+      <div class="data-card">Cybersecurity - Coursera</div>
+      <div class="data-card">JavaScript - CISCO Academy</div>
+      <div class="data-card">Python - CISCO Academy</div>
+      <div class="data-card">C++ - CISCO Academy</div>
+      <div class="data-card">DevOps - Infosys Springboard</div>
+      <div class="data-card">GitHub - Infosys Springboard</div>
+      <div class="data-card">React - Infosys Springboard</div>
+      <div class="data-card">DSA in JavaScript - freeCodeCamp</div>
+    </div>
+  </div>
+  <div class="skills-section">
+    <div class="skills-title">Skills</div>
+    <div class="skills-list">
+      <div class="skill-item">JavaScript</div>
+      <div class="skill-item">HTML/CSS</div>
+      <div class="skill-item">React</div>
+      <div class="skill-item">Figma</div>
+      <div class="skill-item">Responsive Design</div>
+      <div class="skill-item">GitHub</div>
+      <div class="skill-item">Cybersecurity</div>
+      <div class="skill-item">Python</div>
+    </div>
+  </div>
+  <div class="project-section">
+    <div class="project-title">My Projects</div>
+    <div class="project-card">
+      <img class="project-img" src="https://i.postimg.cc/fL1XcCGW/1000039768.jpg" alt="Astrofholic Clone">
+      <div style="font-size:1.09rem; color:#c770f0; font-weight:700; margin-top:7px;">ASTROFHOLIC Clone</div>
+      <div style="font-size:0.95rem; margin-bottom:7px;">Created a clone of ASTROFHOLIC website with innovative design concepts, high-quality visual assets, and enhanced user interface elements.</div>
+      <div class="project-tags">
+        <span class="tag">Frontend</span>
+        <span class="tag">Design</span>
+        <span class="tag">React</span>
+        <span class="tag">Figma</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <img class="project-img" src="https://i.postimg.cc/qqKXtSZx/1000039757.jpg" alt="Film Festival">
+      <div style="font-size:1.09rem; color:#c770f0; font-weight:700; margin-top:7px;">Film Festival Application</div>
+      <div style="font-size:0.95rem; margin-bottom:7px;">Designed and developed a visually stunning application for ASTROFHOLIC’s film festival, focusing on creative layouts and seamless experience.</div>
+      <div class="project-tags">
+        <span class="tag">UI/UX</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Responsive</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-section">
+    <div class="contact-title">Contact</div>
+    <ul class="contact-list">
+      <li class="contact-item"><span class="contact-label">Phone:</span> +91 7695034561</li>
+      <li class="contact-item"><span class="contact-label">Email:</span> brijesh@example.com</li>
+      <li class="contact-item"><span class="contact-label">GitHub:</span> github.com/brijeshmaurya</li>
+      <li class="contact-item"><span class="contact-label">LinkedIn:</span> linkedin.com/in/brijeshmaurya</li>
+    </ul>
+  </div>
+</body>
+</html>
